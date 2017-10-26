@@ -1,0 +1,19 @@
+<div class="jumbotron1">
+  <form class="validate_form" action="extract_url">
+    <input type="hidden" name="roomId" value="" class="roomId"></input> 
+    <ul id="sortable">
+    
+    </ul>
+  </div>
+  </form>
+  <%= link_to "Add Url","#",:class=>"add-url btn btn-primary"%>
+  <%= link_to "Fetch","#",:class=>"fetch-url btn btn-primary"%>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    AT.home.addUrlHtmlComponent();
+    AT.home.urlDragable();
+    AT.home.validateForm();
+    AT.home.fetchUrl();
+  })
+</script>
