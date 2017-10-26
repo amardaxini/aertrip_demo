@@ -1,13 +1,10 @@
 class HomeController < ApplicationController
+  
   def index
   end
-  def extract_url
-    params["url_field"].values.map do |x|
-    ActionCable.server.broadcast "url_messages_#{params[:roomId]}",
 
-        url: x
-        
-      head :ok
-    end  
+  def extract_url
+    UrlFetchJob.perform_async(params["url_field"].as_json,params[:roomId],params[:sort_order])
+    head :ok
   end
 end

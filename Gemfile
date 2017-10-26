@@ -55,4 +55,5 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-ui-rails'
 gem 'pry'
-
+gem "sidekiq"
+gem 'metainspector'
