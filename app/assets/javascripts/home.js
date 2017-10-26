@@ -41,6 +41,7 @@ AT = (function($, window, document, AerTrip){
           $("input.roomId").val(AT.roomId);
           var sortOrder = $( "#sortable" ).sortable( "toArray", {attribute: 'data-item_number'} )
           $(".sort_order").val(sortOrder);
+          $('.result').html('');
           // TODO Disbaled add url and fetch button etc
           $.ajax({
             type: "POST",
