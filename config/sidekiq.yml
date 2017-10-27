@@ -1,8 +1,9 @@
 ---
-:concurrency: 1
+:concurrency: 3
 :pidfile: ./tmp/sidekiq.pid
 :logfile: ./log/sidekiq.log
 production:
   :concurrency: 1
 :queues:
   - [url_fetch_job, 5]
+  - [page_url_fetch_job, 5]

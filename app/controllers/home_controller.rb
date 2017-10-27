@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   end
 
   def extract_url
-    UrlFetchJob.perform_async(params["url_field"].as_json,params[:roomId],params[:sort_order])
+    PageUrlFetchJob.perform_async(params["url_field"].as_json,params[:roomId],params[:sort_order])
     head :ok
   end
 end

@@ -3,12 +3,14 @@ AT.roomId = Math.random().toString();
 console.log(AT.roomId);
 App.url_messages = App.cable.subscriptions.create({channel: 'UrlChannel',roomId: AT.roomId}, {  
   received: function(data) {
-
-    $(".progress-bar").css("width", data.progress + "%").text(data.progress + " %");
-    return $('.result').append(this.renderMessage(data));
+    var totalFetchedUrl = $("#url_results li").length
+    progress = ((totalFetchedUrl+1)/parseFloat(data.total_url)) * 100 
+    $(".progress-bar").css("width", progress + "%").text(progress + " %");
+    console.log(this.renderMessage(data))
+    return $('.result ul').append(this.renderMessage(data));
   },
   renderMessage: function(data) {
 
-    return "<p> <b>" + data.url+": </b> "+data.title+"</p>";
+    return "<li><b>" + data.url+": </b> "+data.title+"</li>";
   }
 });
